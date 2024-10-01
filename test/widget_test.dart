@@ -42,23 +42,32 @@ class _WaterCalculatorState extends State<WaterCalculator> {
       appBar: AppBar(
         title: Text('Water Consumption Calculator'),
       ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            TextField(
-              controller: _controller,
-              decoration: InputDecoration(
-                labelText: 'Enter water amount (ml)',
+      body: Padding(
+        padding: const EdgeInsets.all(16.0),
+        child: Center(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget>[
+              TextField(
+                controller: _controller,
+                decoration: InputDecoration(
+                  labelText: 'Enter water amount (ml)',
+                  border: OutlineInputBorder(),
+                ),
+                keyboardType: TextInputType.number,
               ),
-              keyboardType: TextInputType.number,
-            ),
-            ElevatedButton(
-              onPressed: _calculateLightYears,
-              child: Text('Calculate'),
-            ),
-            Text(_result),
-          ],
+              SizedBox(height: 20),
+              ElevatedButton(
+                onPressed: _calculateLightYears,
+                child: Text('Calculate'),
+              ),
+              SizedBox(height: 20),
+              Text(
+                _result,
+                style: TextStyle(fontSize: 20),
+              ),
+            ],
+          ),
         ),
       ),
     );
