@@ -23,6 +23,8 @@ class WaterCalculator extends StatefulWidget {
 }
 
 class _WaterCalculatorState extends State<WaterCalculator> {
+  final TextEditingController _controller = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -30,7 +32,18 @@ class _WaterCalculatorState extends State<WaterCalculator> {
         title: Text('Water Consumption Calculator'),
       ),
       body: Center(
-        child: Text('Welcome to the Water Calculator!'),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: <Widget>[
+            TextField(
+              controller: _controller,
+              decoration: InputDecoration(
+                labelText: 'Enter water amount (ml)',
+              ),
+              keyboardType: TextInputType.number,
+            ),
+          ],
+        ),
       ),
     );
   }
